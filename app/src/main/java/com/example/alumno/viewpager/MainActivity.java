@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toast.makeText(getApplicationContext(),
                 "GitHub", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),
+                "GitHub2", Toast.LENGTH_SHORT).show();
 
         pref = getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
 

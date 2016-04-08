@@ -1,6 +1,7 @@
 package com.example.alumno.viewpager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.support.v4.view.ViewPager;
@@ -9,15 +10,18 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager guide_pager;
-    ImageView imageView;
+    private ImageView imageView;
+    private ImageButton ir;
     SharedPreferences pref;
    public static final String PREFERENCES_FILE_NAME="MyAppPreferences";
     @Override
@@ -73,6 +77,19 @@ public class MainActivity extends AppCompatActivity {
                                                         public void onPageScrollStateChanged(int i) {
                                                         }
                                                     });
+        imageView = (ImageView)findViewById(R.id.ImagenPrincipal);
+        //BOTON REDONDEADO DE LA PAGINA PRINCIPAL
+        ir = (ImageButton)findViewById(R.id.ir);
+        //AL PULSAR EL BOTON REDONDEADO DE LA PAGINA PRINCIPAL
+        ir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                        Intent i = new Intent(MainActivity.this, Principal.class);
+                        startActivity(i);
+
+            }
+        });
+        Picasso.with(this).load(Constantes.URL_IMAGEN).into(imageView);
 
     }
 

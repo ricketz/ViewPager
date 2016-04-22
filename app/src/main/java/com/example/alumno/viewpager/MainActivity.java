@@ -29,10 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Toast.makeText(getApplicationContext(),
-                "GitHub", Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(),
-                "GitHub2", Toast.LENGTH_SHORT).show();
+
 
         pref = getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
 
@@ -90,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Picasso.with(this).load(Constantes.URL_IMAGEN).into(imageView);
-
+        Intent i = new Intent(MainActivity.this, Principal.class);
+        startActivity(i);
     }
 
     private void Resolucion()
